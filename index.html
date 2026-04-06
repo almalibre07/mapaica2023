@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Establecer relación con el css-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Incluir el archivo css de Leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    <!--Incluir el archivo js de Leaflet-->
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <!--Incluir Leaflet Omnivore de la api de Mapbox para poder cargar archivos kml-->
+     <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
+    <!--Incluir Leaflet GoogleMutant para incluir mapas base de Google-->
+    <!--<script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>-->
+
+     <!--Establecer relación con el css del Minimapa-->
+    <link rel="stylesheet" href="Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+
+    <!--Establecer relación con el js del Minimapa-->
+    <script src="Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+
+    <!-- Incluir el CSS del complemento leaflet.sidebar -->
+    <link rel="stylesheet" href="leaflet-sidebar-master/src/L.Control.Sidebar.css">
+
+    <!-- Incluir el JS del complemento leaflet.sidebar -->
+    <script src="leaflet-sidebar-master/src/L.Control.Sidebar.js"></script>
+    
+    <title>Mapa de Monitoreo</title>
+
+</head>
+
+<body>
+    <h1>Mapa de Monitoreo 2023</h1>
+    <!--<h2>Año 2023</h2>-->
+
+    <!--Insertar el contenedor para mostrar el nombre de la capa activa, con un id para identificarlo-->   
+    <div id="layer-info" style="font-size: 16px; color: white; font-weight: bold; margin: 10px;">
+        Capa actual: <span id="current-layer"></span>
+      </div>
+
+    <!--Insertar menu desplegable-->
+    <select name="select-location" id="select-location">
+        <option value="-1">Seleccione un Punto</option>
+        <option value="A">Arias (A)</option>
+        <option value="An">Antezama (=Zapiola) (An)</option>
+        <option value="CE">CEAMSE (CE)</option>
+        <option value="D1">Durazno 1 (D1)</option>
+        <option value="D2">Durazno 2 (D2)</option>
+        <option value="D3">Durazno 3 (D3)</option>
+        <option value="GC">Gaspar Campos (GC)</option>
+        <option value="In">Independencia (In)</option>
+        <option value="LC1">La Choza 1 (LC1)</option>
+        <option value="LC2">La Choza 2 (LC2)</option>
+        <option value="LC3">La Choza 3 (LC3)</option>
+        <option value="MF">Martin Fierro (MF)</option>
+        <option value="Mi"> E. Mitre (Mi)</option>
+        <option value="PNC">Puente (PNC)</option>
+        <option value="PR">Presa Roggero (PR)</option>
+        <option value="R201">Ruta N° 201 (R201)</option>
+        <option value="R202">Ruta N° 202 (R202)</option>
+        <option value="R24">Ruta N° 24 (R24)</option>
+        <option value="R27">Ruta N° 27 (R27)</option>
+        <option value="R7">Ruta N° 7 (R7)</option>
+        <option value="R8">Ruta N° 8 (R8)</option>
+        <option value="RCh">Reconquista Chico (RCh)</option>
+        <option value="Ti">Tigre (Ti)</option>
+    </select>
+    
+    <!--Insertar el contenedor del mapa con un id para identificarlo-->
+    <div id="contenedor_del_mapa"></div>
+
+    <!-- Agregar el contenedor de la barra lateral -->
+    <div id="sidebar" class="leaflet-sidebar collapsed">
+      <div class="leaflet-sidebar-tabs">
+          <ul role="tablist">
+              <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+          </ul>
+      </div>
+      <div class="leaflet-sidebar-content">
+          <div id="home" class="leaflet-sidebar-pane">
+              <h1 class="leaflet-sidebar-header">Información del Punto<span class="leaflet-sidebar-close"><i class="fa fa-times"></i></span></h1>
+              <div id="sidebar-content"></div>
+          </div>
+      </div>
+  </div>
+
+    <!--Establecer relación con el js-->
+    <script src="index.js"></script>
+
+    <!--Establecer relación con el js de la cuenca-->
+    <script src="./data/Cuenca.js"></script>
+
+    <!--Establecer relación con el js de la hidrografia-->
+    <script src="./data/Hidro.js"></script>
+
+</body>
+</html>

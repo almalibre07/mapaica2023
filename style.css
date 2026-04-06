@@ -1,0 +1,176 @@
+body, html {
+    height: 100%; /* Asegura que el body y html ocupen el 100% de la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+    background-color: black;
+}
+
+h1{
+    color:white;
+    font-family: Verdana;
+    text-align: center;
+}
+
+h2{
+    color:black;
+    font-family: Verdana;
+    text-align: center;
+}
+
+#contenedor_del_mapa {
+    height: 82%; /* El div del mapa ocupa el 82% de la altura de la pantalla */
+    width: 98%;
+    margin: auto; /* Para centrar horizontalmente el contenedor*/
+}
+
+/*Formato para el cuadro de texto de capa actual*/
+#layer-info {
+  background-color: #000000; /* Fondo negro */
+  padding: 10px;            /* Espaciado interno */
+  border: 2px solid #ffffff;   /* Borde blanco */
+  border-radius: 5px;       /* Esquinas redondeadas */
+  display: inline-block;    /* Tamaño ajustado al contenido */
+  font-family: Arial, sans-serif; /* Fuente */
+}
+
+#current-layer {
+  color: #ff0000;           /* Color del texto del nombre de la capa */
+}
+
+#select-location {
+  background-color: #000000; /* Fondo negro */
+  padding: 10px; /* Espaciado interno */
+  border: 2px solid #ffffff; /* Borde blanco */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-family: Arial, sans-serif; /* Fuente */
+  font-size: 14px; /* Tamaño de la fuente */
+  color: #ffffff; /* Color del texto */
+  font-weight: bold;
+  display: inline-block; /* Tamaño ajustado al contenido */
+  margin: 10px; /* Espaciado externo */
+  outline: none; /* Elimina el borde al hacer clic */
+}
+
+/* Color de fondo y el texto de las opciones del menú desplegable */
+#select-location option {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  font-weight: bold; /* Texto en negrita */
+}
+
+/* Cambiar el estilo al pasar el ratón */
+#select-location:hover {
+  background-color: rgb(65, 65, 65); /* Color de fondo de la opción */
+  cursor: pointer; /* Cambiar el cursor a una mano */
+}
+
+/* Cambiar el estilo al seleccionar */
+#select-location:focus {
+  border-color: #ffffff; /* Borde blanco */
+  box-shadow: 0 0 5px rgba(65, 65, 65, 0.5); /* Resaltar con sombra */
+}
+
+/*Estilo global para los popups*/
+.leaflet-popup-content {
+    background-color: black;  /* Fondo negro */
+    color: white;             /* Texto blanco */
+    font-weight: bold;        /* Texto en negrita */
+    padding: 10px;            /* Espaciado interno */
+    border-radius: 5px;       /* Bordes redondeados */
+  }
+  
+.leaflet-popup-content-wrapper {
+    background-color: black;  /* Fondo negro del contenido */
+    border-radius: 5px;       /* Bordes redondeados */
+  }
+  
+.leaflet-popup-tip {
+    background-color: black;  /* Fondo negro del triángulo debajo del popup */
+  }
+
+/*Estilo para las etiquetas*/
+.leaflet-tooltip.custom-tooltip {
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+/*Estilo del cuadro de leyenda*/
+.legend {
+    background: black;
+    padding: 15px;      /* Espaciado interno */
+    border-radius: 5px;     /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);    /* Sombra para destacar la leyenda */
+    font-size: 14px;    /* Tamaño del texto */
+    line-height: 30px;  /* Altura de línea para mayor separación */
+    color: white;       /* Texto blanco */
+    font-weight: bold;      /* Texto en negrita */
+  }
+
+/* Estilo de los textos de la leyenda*/
+.legend h4 {
+    margin: 0 0 10px;
+    color: white;
+  }
+  
+/*Estilo de los iconos de la leyenda*/
+.legend i {
+    display: inline-block;      /* Asegura que los íconos estén en línea */
+    width: 25px;        /* Ancho del ícono */
+    height: 20px;       /* Altura del ícono */
+    margin-right: 12px;     /* Separación entre el ícono y el texto */
+    border-radius: 5px;     /* Bordes redondeados para los íconos */
+    vertical-align: middle;     /* Alinea el símbolo al medio del texto */
+
+  }
+
+/* Estilo para el selector de capas */
+.leaflet-control-layers {
+  background-color: #000000 !important; /* Forzar fondo negro */
+  color: white !important; /* Forzar texto blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  padding: 10px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño de la fuente */
+  font-family: Arial, sans-serif; /* Fuente */
+  line-height: 30px;  /* Altura de línea para mayor separación */
+  }
+
+/* Estilo para las opciones del selector de capas (nombres de las capas) */
+.leaflet-control-layers-list label {
+  color: #ffffff; /* Color de la fuente */
+  font-weight: bold; /* Fuente no en negrita */
+  font-size: 16px; /* Tamaño de la fuente */
+}
+
+/* Cambiar el color de fondo cuando una capa está seleccionada */
+.leaflet-control-layers-list input:checked + span {
+  background-color: #ffffff; /* Color de fondo verde */
+  color: rgb(0, 0, 0); /* Color de la fuente */
+}
+
+/* Cambiar el color de fondo cuando el control de capas está en hover */
+.leaflet-control-layers:hover {
+  background-color: #000000; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para el encabezado de la lista de capas*/
+.leaflet-control-layers-heading {
+  color: #ffffff; /* Color del título */
+  font-size: 18px; /* Tamaño del título */
+  font-weight: bold; /* Fuente en negrita */
+  padding-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* Estilo para los enlaces dentro del control de capas (cuando se clickea) */
+.leaflet-control-layers-list a {
+  color: #cc0000; /* Color del enlace */
+  text-decoration: none; /* Sin subrayado */
+}
+
+.leaflet-control-layers-list a:hover {
+  color: #cc0000; /* Color del enlace cuando se pasa el ratón */
+}
